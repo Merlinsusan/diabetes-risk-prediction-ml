@@ -1,0 +1,169 @@
+/* Container for the whole form */
+.form-container {
+  max-width: 1000px;              /* Made it wider */
+  margin: 50px auto;              /* Centered vertically */
+  padding: 40px;                  /* More inner space */
+  border-radius: 12px;
+  text-align: center;
+  
+
+  
+}
+body {
+    background-image: url('../images/ai-diabetes-risk-tool-istock.webp');
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+}
+
+/* Main heading */
+.form-container h1 {
+  margin-bottom: 25px;
+  font-size: 32px;                /* Bigger title */
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+/* Alert messages */
+.alert {
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  text-align: left;
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.alert-success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 18px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Form layout with 2 columns */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* Two columns */
+  gap: 30px;                              /* Increased spacing */
+  text-align: left;
+  padding: 25px;
+  border-radius: 8px;
+    /* background-color: rgba(143, 143, 143, 0);  */
+}
+
+/* Individual input and label */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.form-group input {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.5px solid #000000;
+  background-color: #fff;
+}
+
+/* Button container */
+.form-button {
+  grid-column: span 2;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Submit button */
+.form-button button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form-button button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;  /* Stack fields */
+  }
+
+  .form-button {
+    grid-column: span 1;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+}
+
+/* Dark Fullscreen Overlay */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9); /* black background */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinner: rotating bars */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-top: 8px solid #ffffff; /* white bar */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Loading Text */
+.spinner-overlay p {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
