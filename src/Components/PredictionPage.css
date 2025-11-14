@@ -1,8 +1,7 @@
-/* Container for the whole form */
 .form-container {
-  max-width: 1000px;              /* Made it wider */
-  margin: 50px auto;              /* Centered vertically */
-  padding: 40px;                  /* More inner space */
+  max-width: 1000px;              
+  margin: 50px auto;              
+  padding: 40px;                   
   border-radius: 12px;
   text-align: center;
   
@@ -18,15 +17,15 @@ body {
 
 }
 
-/* Main heading */
+
 .form-container h1 {
   margin-bottom: 25px;
-  font-size: 32px;                /* Bigger title */
+  font-size: 32px;                
   color: rgb(0, 0, 0);
   font-weight: bold;
 }
 
-/* Alert messages */
+
 .alert {
   padding: 15px 20px;
   margin-bottom: 30px;
@@ -58,18 +57,17 @@ body {
   color: inherit;
 }
 
-/* Form layout with 2 columns */
+
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* Two columns */
-  gap: 30px;                              /* Increased spacing */
+  grid-template-columns: repeat(2, 1fr);  
+  gap: 30px;                              
   text-align: left;
   padding: 25px;
   border-radius: 8px;
-    /* background-color: rgba(143, 143, 143, 0);  */
 }
 
-/* Individual input and label */
+
 .form-group {
   display: flex;
   flex-direction: column;
