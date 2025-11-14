@@ -4,20 +4,16 @@ import random
 import joblib
 from flask_cors import CORS
 
-#  Set random seed for reproducibility
 SEED = 56
 np.random.seed(SEED)
 random.seed(SEED)
 
-# Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS so frontend can call API
 
-#  Load trained model and scaler
-model = joblib.load('model.pkl')     # Your saved KNN or RandomForest model
-scaler = joblib.load('scaler.pkl')   # Your saved StandardScaler
+model = joblib.load('model.pkl')     
+scaler = joblib.load('scaler.pkl')   
 
-#  Define prediction endpoint
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -35,15 +31,14 @@ def predict():
             float(data['Age'])
         ]
 
-        # Preprocess the input
-        input_array = np.array([features])               # Convert to 2D array
-        scaled_input = scaler.transform(input_array)     # Apply same scaling as training
+       
+        input_array = np.array([features])              
+        scaled_input = scaler.transform(input_array)    
 
-        # Predict class and probability
-        prediction = model.predict(scaled_input)[0]                      # 0 or 1
-        probabilities = model.predict_proba(scaled_input)[0]            # [prob0, prob1]
+        
+        prediction = model.predict(scaled_input)[0]                      
+        probabilities = model.predict_proba(scaled_input)[0]            
 
-        # Return JSON response
         return jsonify({
             'prediction': int(prediction),
             'probability_0': round(probabilities[0], 4),
@@ -53,6 +48,6 @@ def predict():
     except Exception as e:
         return jsonify({'error': str(e)})
 
-# ✅ Run the Flask server
+
 if __name__ == '__main__':
     app.run(debug=True)
