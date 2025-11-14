@@ -4,13 +4,12 @@ import random
 import joblib
 from flask_cors import CORS
 
-SEED = 56
+SEED = 42
 np.random.seed(SEED)
 random.seed(SEED)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS so frontend can call API
-
+CORS(app)  
 model = joblib.load('model.pkl')     
 scaler = joblib.load('scaler.pkl')   
 
